@@ -11,17 +11,17 @@ import org.junit.jupiter.api.BeforeAll;
 
 public class StringCalculatorTests {
 	
+	private StringCalculator calc = new StringCalculator();
+	
 	@Test
 	public void EmptyStringReturnsZero()
 	{
-		StringCalculator calc = new StringCalculator();
 		assertEquals(0, calc.Add(""));
 	}
 	
 	@Test
 	public void SingleNumberReturnsTheNumberItself()
 	{
-		StringCalculator calc = new StringCalculator();
 		String num = "9";
 		assertEquals(9, calc.Add(num));
 	}
@@ -29,7 +29,6 @@ public class StringCalculatorTests {
 	@Test
 	public void TwoNumbersRetursTheirSum()
 	{
-		StringCalculator calc = new StringCalculator();
 		String num = "9,14";
 		assertEquals(23, calc.Add(num));
 	}
@@ -37,7 +36,6 @@ public class StringCalculatorTests {
 	@Test
 	public void UnknownNumbersReturnTheirValidSum()
 	{
-		StringCalculator calc = new StringCalculator();
 		Random r = new Random();
 		int totalNums = r.nextInt(20), expectedSum = 0;
 		String nums = "";
@@ -50,6 +48,14 @@ public class StringCalculatorTests {
 			expectedSum += t;
 		}
 		assertEquals(expectedSum, calc.Add(nums));
+	}
+	
+	@Test
+	public void NewLineDelimeterReturnValidSum()
+	{
+//		StringCalculator calc = new StringCalculator();
+		String nums = "5\n6,7\n8\n1";
+		assertEquals(27, calc.Add(nums));
 	}
 
 }
