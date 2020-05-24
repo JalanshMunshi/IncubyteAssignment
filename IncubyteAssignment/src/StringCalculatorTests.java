@@ -14,27 +14,27 @@ public class StringCalculatorTests {
 	private StringCalculator calc = new StringCalculator();
 	
 	@Test
-	public void EmptyStringReturnsZero()
+	public void EmptyStringReturnsZero() throws Exception
 	{
 		assertEquals(0, calc.Add(""));
 	}
 	
 	@Test
-	public void SingleNumberReturnsTheNumberItself()
+	public void SingleNumberReturnsTheNumberItself() throws Exception
 	{
 		String num = "9";
 		assertEquals(9, calc.Add(num));
 	}
 	
 	@Test
-	public void TwoNumbersRetursTheirSum()
+	public void TwoNumbersRetursTheirSum() throws Exception
 	{
 		String num = "9,14";
 		assertEquals(23, calc.Add(num));
 	}
 	
 	@Test
-	public void UnknownNumbersReturnTheirValidSum()
+	public void UnknownNumbersReturnTheirValidSum() throws Exception
 	{
 		Random r = new Random();
 		int totalNums = r.nextInt(20), expectedSum = 0;
@@ -51,21 +51,22 @@ public class StringCalculatorTests {
 	}
 	
 	@Test
-	public void NewLineDelimeterReturnValidSum()
+	public void NewLineDelimeterReturnValidSum() throws Exception
 	{
 		StringCalculator calc = new StringCalculator();
 		String nums = "5\n6,7\n8\n1";
+		assertEquals(27, calc.Add(nums));
 	}
 	
 	@Test
-	public void DifferentDelimiterReturnsValidSum()
+	public void DifferentDelimiterReturnsValidSum() throws Exception
 	{
 		String nums = "//;\n1;2";
 		assertEquals(3, calc.Add(nums));
 	}
 	
 	@Test(expected = Exception.class)
-	public void NegativeNumberThrowsException()
+	public void NegativeNumberThrowsException() throws Exception
 	{
 		String nums = "-5";
 		calc.Add(nums);

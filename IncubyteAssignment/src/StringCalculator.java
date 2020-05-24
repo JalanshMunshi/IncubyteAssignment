@@ -2,12 +2,13 @@
 public class StringCalculator {
 	
 //	Add function that takes up to 2 numbers
-	public int Add(String nums) {
+	public int Add(String nums) throws Exception {
 		
 		if(nums.length() == 0)
 			return 0;
 		
 		int ans = 0;
+//		Get the delimiter
 		String delimiter = "";
 		if(nums.charAt(0)=='/' && nums.charAt(1)=='/')
 		{
@@ -19,7 +20,12 @@ public class StringCalculator {
 		
 		String[] numbers = nums.split(delimiter);
 		for(String s : numbers)
-			ans += Integer.parseInt(s);
+		{
+			int t = Integer.parseInt(s);
+			if(t < 0)
+				throw new Exception("Negatives like" + Integer.toString(t) + "not allowed.");
+			ans += t;
+		}
 		return ans;
 	}
 
