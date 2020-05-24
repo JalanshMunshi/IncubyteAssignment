@@ -9,10 +9,18 @@ import org.junit.Test;
 public class StringCalculatorTests {
 	
 	@Test
-	public void EmptyStringReturnZero()
+	public void EmptyStringReturnsZero()
 	{
 		StringCalculator c = new StringCalculator();
 		assertEquals(0, c.Add(""));
+	}
+	
+	@Test
+	public void StringWithSingleNumberReturnsTheNumberItself()
+	{
+		StringCalculator c = new StringCalculator();
+		String num = "9";
+		assertEquals(9, c.Add(num));
 	}
 
 }
