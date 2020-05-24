@@ -6,7 +6,14 @@ public class StringCalculator {
 		
 		if(nums.length() == 0)
 			return 0;
-		return -1;
+		int ans = 0;
+		char[] numChars = nums.toCharArray();
+		for(int i=0; i<nums.length(); i++)
+		{
+			if(numChars[i]>='0' || numChars[i]<='9')
+				ans += numChars[i] - '0';
+		}
+		return ans;
 	}
 
 }
