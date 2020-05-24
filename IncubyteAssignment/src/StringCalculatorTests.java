@@ -22,5 +22,13 @@ public class StringCalculatorTests {
 		String num = "9";
 		assertEquals(9, c.Add(num));
 	}
+	
+	@Test
+	public void StringWithTwoNumbersRetursTheirSum()
+	{
+		StringCalculator c = new StringCalculator();
+		String num = "9,14";
+		assertEquals(23, c.Add(num));
+	}
 
 }
