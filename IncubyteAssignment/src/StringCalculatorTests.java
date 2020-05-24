@@ -53,9 +53,21 @@ public class StringCalculatorTests {
 	@Test
 	public void NewLineDelimeterReturnValidSum()
 	{
-//		StringCalculator calc = new StringCalculator();
+		StringCalculator calc = new StringCalculator();
 		String nums = "5\n6,7\n8\n1";
-		assertEquals(27, calc.Add(nums));
 	}
-
+	
+	@Test
+	public void DifferentDelimiterReturnsValidSum()
+	{
+		String nums = "//;\n1;2";
+		assertEquals(3, calc.Add(nums));
+	}
+	
+	@Test(expected = Exception.class)
+	public void NegativeNumberThrowsException()
+	{
+		String nums = "-5";
+		calc.Add(nums);
+	}
 }
