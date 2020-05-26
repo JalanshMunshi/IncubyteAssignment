@@ -1,13 +1,8 @@
-import org.junit.platform.commons.annotation.Testable;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Assert;
-
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 
 public class StringCalculatorTests {
 	
